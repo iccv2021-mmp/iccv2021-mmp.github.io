@@ -76,8 +76,9 @@
                 </div>
            </div>
            <div class="col-md-12">
+              <div style="font-family: sans-serif; font-size: 24px;">
+              <div style="margin-top:3%; text-align:justify;">
                 <h2 id="challenge">Multi-camera Multiple People Tracking (MMP-Tracking) Challenge</h2>
-                <h3>
                   <p>
                     MMP-Tracking Challenge aims to push the state of the art multi-camera multiple people 
                     tracking algorithms forward. The participants will receive an annotated training set and a test set without annotations.
@@ -89,11 +90,20 @@
                   </p>
 
                   <p>
-                    Our evaluation codes are based on <a herf="https://github.com/cheind/py-motmetrics/">py-motmetrics</a>. 
-                    The evaluation codes can be downloaded <a herf="https://github.com/iccv2021-mmp/mmp-tracking-helper/">here</a>
+                    For subtrack (1), using camera calibration files provided, one can mapping the ground plane in each camera view into a world coordinate shared by all cameras. Then discretize the world coordinate with voxel size 20mm to get topdown view map. We provide ground truth label of person footpoint coordinates in topdown view map. During evaluation, we compute false positive(FP), false negative(FN) and true positive(TP) by assigning detected person footpoint to ground truth footpoint using Hungarian matching. We impose that a detected footpoint can be assigned to ground truth only if they are less than 0.5m away (25pixel distance in topdown map). After getting FP, FN and TP, we will compute IDF1 and MOTA as our final score.
+                  </p>
+
+                  <p>
+                    For subtrack (2), following the same evaluation procedure widely used in <a herf='https://motchallenge.net/vis/'>MOT</a>, we compute FP, FN and TP for each camera view independently (detected bounding box and ground truth bounding box can be matched only their IOU>0.5). After getting results from each camera view, we average over all these results to computer our final metrics. We will use IDF1 and MOTA as our final score.
+                  </p>
+
+                  <p>
+                    Our evaluation codes are based on <a herf="https://github.com/cheind/py-motmetrics/"> py-motmetrics </a>. 
+                    The evaluation codes can be downloaded <a herf="https://github.com/iccv2021-mmp/mmp-tracking-helper/"> here </a>
                     for local usage by participants.
                   </p>
-                </h3>
+              </div>
+              </div>
            </div>
 
            <div class="col-md-12">
@@ -149,7 +159,7 @@
                       <img src="https://www3.cs.stonybrook.edu/~hling/photo/Ling-18.jpg" width="60%" height="auto">
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-4">
-                      <img src="https://media-exp1.licdn.com/dms/image/C5603AQE-3ICCvEw6ow/profile-displayphoto-shrink_400_400/0/1516332383183?e=1625097600&v=beta&t=GBfydOZ-1dAP0M57mScsmE9m2W3drduSVnlyvhRunFQ" width="60%" height="auto">
+                      <img src="http://users.eecs.northwestern.edu/~yingwu/images/wy_2.jpg" width="60%" height="auto">
                   </div><!-- /.col-lg-4 -->
                 </div>
                 <div class="row">
@@ -196,16 +206,16 @@
                 <h2 id="organizers">Organizers</h2>
                 <div class="row">
                   <div class="col-lg-3">
-                      <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFU3ojQxIZqEQ/profile-displayphoto-shrink_400_400/0/1523661712692?e=1625097600&v=beta&t=vA-r8LpWMyXh8Iy-iklIz0CHdXSfrLVF6G7gDpN_Jbc" width="60%" height="auto" style="border-radius: 50%">
+                      <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=5fHHi24AAAAJ&citpid=1" width="60%" height="auto" style="border-radius: 50%">
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-3">
-                      <img src="https://media-exp1.licdn.com/dms/image/C5603AQFKw0eCqLzVwg/profile-displayphoto-shrink_400_400/0/1607801639335?e=1625097600&v=beta&t=44lrbrjFKigtqJk-jhZh7miOx0hJGhmgbQxGRLxp3LM" width="60%" height="auto" style="border-radius: 50%">
+                      <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=c5KJsIgAAAAJ&citpid=3" width="60%" height="auto" style="border-radius: 50%">
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-3">
-                      <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHZVn2evUnF6A/profile-displayphoto-shrink_400_400/0/1565649466838?e=1625097600&v=beta&t=4A1xOc-J72zfSrk8ryJ1xKCPOzOYFKVsdrlA12cs1X4" width="60%" height="auto" style="border-radius: 50%">
+                      <img src="https://media-exp1.licdn.com/dms/image/C4D03AQHZVn2evUnF6A/profile-displayphoto-shrink_200_200/0/1565649466838?e=1630540800&v=beta&t=vfgFFiWznOgTHek8fCmz60-qvefvpdzIt1ASTtf_Lbg" width="60%" height="auto" style="border-radius: 50%">
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-3">
-                      <img src="https://media-exp1.licdn.com/dms/image/C4E03AQFdlJPg9wk3aA/profile-displayphoto-shrink_400_400/0/1517761531082?e=1625097600&v=beta&t=KDDS3sqSL5ZvokqyI-gjMVP6koERA3IyCIwNAA6GK9k" width="60%" height="auto" style="border-radius: 50%">
+                      <img src="https://media-exp1.licdn.com/dms/image/C4E03AQFdlJPg9wk3aA/profile-displayphoto-shrink_200_200/0/1517761531082?e=1630540800&v=beta&t=b1dqsS4F_ui9bUlXSU5vIqVv9E072_BdvZWyZcadw18" width="60%" height="auto" style="border-radius: 50%">
                   </div><!-- /.col-lg-4 -->
                 </div>
                 <div class="row">
@@ -225,13 +235,13 @@
 
                 <div class="row">
                   <div class="col-lg-3">
-                      <img src="https://media-exp1.licdn.com/dms/image/C4D03AQFfy-GiS6pSmQ/profile-displayphoto-shrink_400_400/0/1516540615211?e=1625097600&v=beta&t=kclVyNKvVAr3Eox3jDDbrn40I6jiztIFXi2ggxIVA64" width="60%" height="auto" style="border-radius: 50%">
+                      <img src="http://vision.stanford.edu/lijiali/JiaLi_files/JiaLi.jpg" width="60%" height="auto" style="border-radius: 50%">
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-3">
-                      <img src="https://media-exp1.licdn.com/dms/image/C4D03AQE5XCY-V6wtJw/profile-displayphoto-shrink_400_400/0/1517447243063?e=1625097600&v=beta&t=vqavn6u37B1biLi98biOD3y9Iki_CT1uU8h-A34eL_Q" width="60%" height="auto" style="border-radius: 50%">
+                      <img src="img/Houdong_profile.png" width="60%" height="auto" style="border-radius: 50%">
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-3">
-                      <img src="https://media-exp1.licdn.com/dms/image/C4D03AQGOrSGLpU7LVw/profile-displayphoto-shrink_400_400/0/1517058914020?e=1625097600&v=beta&t=EXBFy1wIEu1LRgkoz0uGKRzTUGwRU8r_tB1Ty2XfcMI" width="60%" height="auto" style="border-radius: 50%">
+                      <img src="http://wangjiangb.github.io/face_all.png" width="60%" height="auto" style="border-radius: 50%">
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-3">
                       <img src="https://www.microsoft.com/en-us/research/wp-content/uploads/2017/03/avatar_user__1490216903-360x360.jpg" width="60%" height="auto" style="border-radius: 50%">
